@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>khedr</title>
+</head>
+<body>
+    
+   <style>
+ .bn{
+     margin-left: 200px;
+ }
+
+ table{
+    width: 100%;
+    height: auto;
+    border: 2px solid #0074B7;
+    border-spacing: 0px;
+ }
+
+ table td{
+    padding: 15px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+ }
+ table thead td{
+    background-color: #60A3D9;
+ }
+
+   </style>
+  
+  
+  
+    <input type="text" placeholder="Name" class="a">
+  <input type="tel"  placeholder=" Telephone Number" class="b">
+  <input type="email" placeholder=" Email" class="c"> <br><br>
+   <button class="bn">Add</button> <br><br><br>
+   <!-- <h1></h1> -->
+    <!-- <p id="msg" style="color: #738FA7; font-size: 40px;"></p> -->
+
+   <table  id="myTable" style="opacity: 0 ;">
+    
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Phone Number</td>
+        <td>Email</td>
+    </tr>
+   </thead>
+
+</table>
+
+<script>
+   
+   
+   let myinput1 = document.querySelector(".a")
+   let myinput2 = document.querySelector(".b")
+   let myinput3 = document.querySelector(".c")
+   let btn = document.querySelector("button")
+//    let myh1 = document.querySelector("h1")
+//    let tbody = document.querySelector(".table-body");
+//    let msg = document.getElementById("msg");
+      let table = document.getElementById("myTable");
+
+    let id = 1
+
+   function task3(){
+     let value1 = myinput1.value
+     let value2 = myinput2.value
+     let value3 = myinput3.value
+    //   myh1.innerHTML=(`${value1}  ${value2}  ${value3}`)
+     //  myh1.innerHTML=value1 
+    //  myh1.innerHTML=value2
+    //  myh1.innerHTML=value3 
+  
+    //  if (value1 || value2 || value3) {
+    // alert("من فضلك املى كل الخانات");
+    // return;
+//   }
+
+if (value1 == "") {
+  alert("اكتب الاسم");
+  return;
+}
+
+if (value2 == "") {
+  alert("اكتب رقم التليفون");
+  return;
+}
+
+if (value3 == "") {
+  alert("اكتب الإيميل");
+  return;
+}
+ console.log("كله تمام");
+ 
+
+if (table.style.display == "none") {
+    
+    table.style.display = "table"
+}
+
+  let newrow = document.createElement("tr");
+  
+  newrow.innerHTML =( `
+    <td>${id}</td>
+    <td>${value1}</td>
+    <td>${value2}</td>
+    <td>${value3}</td> `)
+
+    table.appendChild(newrow);
+
+     myinput1.value = "";
+     myinput2.value = "";
+     myinput3.value = "";
+
+  
+
+id++;
+ 
+
+}
+  
+
+   btn.addEventListener("click" , task3)
+   
+
+</script>
+</body>
+</html>
